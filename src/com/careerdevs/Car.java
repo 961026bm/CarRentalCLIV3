@@ -4,6 +4,7 @@ public class Car {
     private String make;
     private String model;
     private int year;
+    private String licensePlate;
 
     public String getMake() {
         return make;
@@ -15,6 +16,10 @@ public class Car {
 
     public int getYear() {
         return year;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
     public void setMake(String make) {
@@ -29,10 +34,25 @@ public class Car {
         this.year = year;
     }
 
-    public Car(String make, String model, int year) {
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public Car(String make, String model, int year, String licensePlate) {
         this.make = make;
         this.model = model;
         this.year = year;
+        this.licensePlate = licensePlate;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year + '\'' +
+                ", licensePlate=" + licensePlate +
+                '}';
     }
 }
 
