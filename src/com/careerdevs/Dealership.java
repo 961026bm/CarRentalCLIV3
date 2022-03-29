@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    private String autoWorld;
+    private String dealershipName;
     private List<Car> availableCars;
     private List<Car> soldCars;
 
-   public Dealership(String autoWorld){
-       this.autoWorld = autoWorld;
+   public Dealership(String dealershipName){
+       this.dealershipName = dealershipName;
        this.availableCars = new ArrayList<>();
        this.soldCars = new ArrayList<>();
    }
 
-   public String getAutoWorld(){
-       return autoWorld;
+   public String getDealershipName(){
+       return dealershipName;
     }
 
     public List<Car> getAvailableCars(){
@@ -26,8 +26,8 @@ public class Dealership {
        return soldCars;
     }
 
-    public void setAutoWorld(String autoWorld) {
-        this.autoWorld = autoWorld;
+    public void setDealershipName(String autoWorld) {
+        this.dealershipName = dealershipName;
     }
 
     public void setAvailableCars(ArrayList availableCars){
@@ -38,11 +38,29 @@ public class Dealership {
        this.soldCars = soldCars;
     }
 
-    public static void buyCar(String license) {
-       for (int availableCars = 0; availableCars < 0; availableCars++) {
-         //  if (availableCars == )
-               //soldCars.push
+    public void buyCar(String license) {
+       for (int i = 0; i < availableCars.size(); i++) {
+           if (license.equals(availableCars.get(i).getLicensePlate())){
+               soldCars.add(availableCars.get(i));
+               availableCars.remove(i);
+           }
+
 
        }
+
     }
+    public void renturnCar(String license) {
+        for(int i = 0; i < soldCars.size(); i++) {
+            if (license.equals(soldCars.get(i).getLicensePlate())){
+                availableCars.add(soldCars.get(i));
+                soldCars.remove(i);
+            }
+        }
+    }
+    public void displayInventory() {
+       for(int i = 0; i < availableCars.size(); i++) {
+           System.out.println(availableCars.get(i));
+       }
+    }
+
 }
